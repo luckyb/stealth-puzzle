@@ -64,10 +64,7 @@ public class InputController : MonoBehaviour
 
 	Vector2 GetScreenPosition(Vector2 mousePosition)
 	{
-		mousePosition -= new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
-		mousePosition.x *= 640f / Screen.width;
-		mousePosition.y *= 1136f / Screen.height;
-		return mousePosition;
+		return transform.InverseTransformPoint(Camera.main.ScreenToWorldPoint(mousePosition));
 	}
 
 	public Vector2 Input
