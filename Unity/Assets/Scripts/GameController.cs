@@ -61,6 +61,18 @@ public class GameController : MonoBehaviour
 			main = this;
 			return;
 		}
+		
+		if (Input.GetKeyDown(KeyCode.LeftBracket))
+		{
+			level--;
+			Application.LoadLevel("Game");
+		}
+
+		if (Input.GetKeyDown(KeyCode.RightBracket))
+		{
+			level++;
+			Application.LoadLevel("Game");
+		}
 	}
 
 	void LoadLevel()

@@ -18,7 +18,7 @@ public class VisionCone : MonoBehaviour
 
 	public bool regenerateMesh;
 
-	public System.Action onPlayerDetected;
+	public System.Action<PlayerController> onPlayerDetected;
 
 	void Awake()
 	{
@@ -106,6 +106,6 @@ public class VisionCone : MonoBehaviour
 	void OnTriggerEnter(Collider other)
 	{
 		PlayerController player = other.gameObject.GetComponent<PlayerController>();
-		if (player != null) onPlayerDetected();
+		if (player != null) onPlayerDetected(player);
 	}
 }

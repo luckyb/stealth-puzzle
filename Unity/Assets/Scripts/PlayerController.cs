@@ -21,11 +21,11 @@ public class PlayerController : MonoBehaviour
 	{
 		float factor = 0;
 
-		Vector2 from = transform.localPosition;
+		Vector2 from = Position;
 
 		while (true)
 		{
-			transform.localPosition = (to - from) * factor + from;
+			Position = (to - from) * factor + from;
 
 			if (factor == 1) break;
 
@@ -33,5 +33,11 @@ public class PlayerController : MonoBehaviour
 
 			factor = Mathf.Clamp01(factor + Time.deltaTime / time);
 		}
+	}
+
+	public Vector2 Position
+	{
+		get { return transform.localPosition; }
+		set { transform.localPosition = new Vector3(value.x, value.y, 50); }
 	}
 }

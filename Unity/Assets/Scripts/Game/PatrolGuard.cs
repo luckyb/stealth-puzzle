@@ -106,8 +106,10 @@ public class PatrolGuard : Obstacle
 		}
 	}
 
-	void OnPlayerDetected()
+	void OnPlayerDetected(PlayerController player)
 	{
+		StartCoroutine(LookAt(player.Position, 0.25f));
+		StartCoroutine(ApproachTowards(player.Position, 0.5f, 0.25f));
 		TriggerPlayerDetected();
 	}
 }
