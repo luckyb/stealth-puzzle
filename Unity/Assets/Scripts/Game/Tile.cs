@@ -18,17 +18,19 @@ public class Tile : MonoBehaviour
 	[Space(8)]
 
 	public bool generateSecurityCamera;
+	public bool generatePatrolGuard;
 	
 	[HideInInspector] public Map map;
 
-	new SpriteRenderer renderer;
-	new BoxCollider collider;
+	SpriteRenderer renderer;
+	BoxCollider collider;
 
 	void Awake()
 	{
 		renderer = GetComponent<SpriteRenderer>();
 		collider = GetComponent<BoxCollider>();
 		collider.center = new Vector3(0, 0, -0.5f);
+		RefreshTile();
 	}
 
 	void Update()
@@ -39,6 +41,12 @@ public class Tile : MonoBehaviour
 			{
 				generateSecurityCamera = false;
 				map.GenerateSecurityCameraAtTile(this);
+			}
+
+			if (generatePatrolGuard)
+			{
+				generatePatrolGuard = false;
+				map.GeneratePatrolGuardAtTile(this);
 			}
 
 			RefreshTile();

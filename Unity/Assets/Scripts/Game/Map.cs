@@ -4,7 +4,6 @@ using System.Collections.Generic;
 [ExecuteInEditMode]
 public class Map : MonoBehaviour
 {
-	[SerializeField] PlayerController playerController;
 	[SerializeField] GameObject obstaclesContainer;
 
 	[Space(8)]
@@ -35,6 +34,7 @@ public class Map : MonoBehaviour
 				grid = new List<TileColumn>();
 				spawnTile = null;
 				this.DestroyChildren();
+				obstaclesContainer.DestroyChildren();
 			}
 
 			if (generateBox)
@@ -140,7 +140,7 @@ public class Map : MonoBehaviour
 	{
 		if (spawnTile != null && spawnTile != tile) spawnTile.Type = Tile.TileType.Normal;
 		spawnTile = tile;
-		playerController.transform.localPosition = spawnTile.Position;
+		GameController.main.PlayerController.transform.localPosition = spawnTile.Position;
 	}
 
 	public void GenerateSecurityCameraAtTile(Tile tile)
@@ -149,6 +149,14 @@ public class Map : MonoBehaviour
 		securityCamera.name = "Security Camera";
 		securityCamera.Position = tile.Position;
 		securityCamera.onPlayerDetected = TriggerObstacleDetectedPlayer;
+	}
+
+	public void GeneratePatrolGuardAtTile(Tile tile)
+	{
+		PatrolGuard patrolGuard = obstaclesContainer.AddChild<PatrolGuard>(patrolGuardPrefab);
+		patrolGuard.name = "Patrol Guard";
+		patrolGuard.Position = tile.Position;
+		patrolGuard.onPlayerDetected = TriggerObstacleDetectedPlayer;
 	}
 
 	public System.Action<Tile> onPlayerReachedGoal;

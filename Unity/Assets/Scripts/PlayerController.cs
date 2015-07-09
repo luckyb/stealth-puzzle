@@ -2,7 +2,7 @@
 
 public class PlayerController : MonoBehaviour
 {
-	[SerializeField] new Rigidbody rigidbody;
+	[SerializeField] Rigidbody rigidbody;
 	[SerializeField] InputController inputController;
 	[SerializeField] float speed;
 

@@ -26,13 +26,13 @@ public class SecurityCamera : Obstacle
 
 	void Awake()
 	{
-		if (!Application.isPlaying)
-		{
-			return;
-		}
-
 		visionCone.onPlayerDetected = OnPlayerDetected;
 
+		transform.localEulerAngles = new Vector3(0, 0, startRotation);
+	}
+
+	public override void Initiate()
+	{
 		StartObstacleCoroutine(Rotate());
 	}
 

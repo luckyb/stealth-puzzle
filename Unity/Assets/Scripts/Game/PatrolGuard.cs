@@ -28,7 +28,10 @@ public class PatrolGuard : Obstacle
 	void Awake()
 	{
 		visionCone.onPlayerDetected = OnPlayerDetected;
+	}
 
+	public override void Initiate()
+	{
 		StartObstacleCoroutine(Patrol());
 	}
 

@@ -18,6 +18,8 @@ public abstract class Obstacle : MonoBehaviour
 		onPlayerDetected(this);
 	}
 
+	public abstract void Initiate();
+
 	public void Stop()
 	{
 		StopCoroutine(obstacleCoroutine);
