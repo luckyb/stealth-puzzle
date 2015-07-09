@@ -190,19 +190,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a811fb6662658456d9c07262c85ded20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coroutineHandler: {fileID: 0}
   visionCone: {fileID: 11431538}
-  startRotation: 90
-  endRotation: 180
+  startRotation: 0
+  endRotation: 90
   rotationPeriod: 5
   rotationPause: 2
   clockwise: 1
+  snapToTopLeft: 0
+  snapToTop: 0
+  snapToTopRight: 0
+  snapToLeft: 0
+  snapToCenter: 0
+  snapToRight: 0
+  snapToBottomLeft: 0
+  snapToBottom: 0
+  snapToBottomRight: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: startRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: endRotation
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 161180}

@@ -190,32 +190,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 905eb2efaba7741b3abae72ae7044da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coroutineHandler: {fileID: 0}
   visionCone: {fileID: 11404040}
-  nodes:
-  - type: 0
-    time: 2
-    moveDelta: {x: 0, y: 300}
-    rotateDelta: 0
-  - type: 2
-    time: 1
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 0
-  - type: 1
-    time: 1
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 90
-  - type: 2
-    time: 1
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 0
-  pingPong: 1
+  nodes: []
+  pingPong: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: nodes.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nodes.Array.data[0].time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nodes.Array.data[0].moveDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nodes.Array.data[1].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nodes.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nodes.Array.data[2].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nodes.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nodes.Array.data[2].rotateDelta
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nodes.Array.data[3].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nodes.Array.data[3].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: pingPong
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 147972}

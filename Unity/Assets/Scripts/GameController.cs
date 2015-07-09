@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
 	float elapsedTime;
 	bool playingGame;
 
+	public bool createNewLevel;
+
 	void Awake()
 	{
 		main = this;
@@ -54,6 +56,24 @@ public class GameController : MonoBehaviour
 		if (!Application.isPlaying)
 		{
 			main = this;
+
+			if (createNewLevel)
+			{
+				createNewLevel = false;
+
+				Level levelResource = (Resources.Load("Level001") as GameObject).GetComponent<Level>();
+
+				Level level = this.AddChild<Level>();
+				level.name = "Level000";
+				level.tilesContainer = level.gameObject.AddChild();
+				level.tilesContainer.name = "Tiles";
+				level.obstaclesContainer = level.gameObject.AddChild();
+				level.obstaclesContainer.name = "Obstacles";
+				level.tileSprite = levelResource.tileSprite;
+				level.securityCameraPrefab = levelResource.securityCameraPrefab;
+				level.patrolGuardPrefab = levelResource.patrolGuardPrefab;
+			}
+
 			return;
 		}
 

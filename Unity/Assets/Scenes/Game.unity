@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 390367952}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 300, y: 100, z: 0}
+  m_LocalPosition: {x: 100, y: 100, z: 0}
   m_LocalScale: {x: 200, y: 200, z: 1}
   m_Children: []
   m_Father: {fileID: 1489276264}
@@ -678,6 +678,7 @@ MonoBehaviour:
   playerController: {fileID: 390367953}
   inputController: {fileID: 1859498259}
   uiController: {fileID: 1188799956}
+  createNewLevel: 0
 --- !u!1 &1492746585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,7 +1061,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2131576785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 300, y: 100, z: -500}
+  m_LocalPosition: {x: 100, y: 100, z: -500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1859498256}

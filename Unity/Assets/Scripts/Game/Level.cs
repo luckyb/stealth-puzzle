@@ -4,19 +4,19 @@ using System.Collections.Generic;
 [ExecuteInEditMode]
 public class Level : MonoBehaviour
 {
-	[SerializeField] GameObject tilesContainer;
-	[SerializeField] GameObject obstaclesContainer;
+	public GameObject tilesContainer;
+	public GameObject obstaclesContainer;
 
 	[Space(8)]
 
-	[SerializeField] Sprite tileSprite;
-	[SerializeField] GameObject securityCameraPrefab;
-	[SerializeField] GameObject patrolGuardPrefab;
+	public Sprite tileSprite;
+	public GameObject securityCameraPrefab;
+	public GameObject patrolGuardPrefab;
 
 	[Space(8)]
 
 	[SerializeField] Vector2 size;
-	[SerializeField][HideInInspector] List<TileColumn> grid;
+	[SerializeField][HideInInspector] List<TileColumn> grid = new List<TileColumn>();
 	public Tile spawnTile;
 
 	[Space(8)]

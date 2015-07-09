@@ -2,13 +2,13 @@
 
 public static class Tools
 {
-	public static GameObject AddChild(this GameObject parent, GameObject prefab)
+	public static GameObject AddChild(this GameObject parent, GameObject prefab = null)
 	{
-		GameObject gameObject = GameObject.Instantiate(prefab);
+		GameObject gameObject = prefab == null ? new GameObject() : GameObject.Instantiate(prefab);
 		gameObject.transform.SetParent(parent.transform);
-		gameObject.transform.localPosition = prefab.transform.localPosition;
-		gameObject.transform.localEulerAngles = prefab.transform.localEulerAngles;
-		gameObject.transform.localScale = prefab.transform.localScale;
+		gameObject.transform.localPosition = prefab == null ? Vector3.zero : prefab.transform.localPosition;
+		gameObject.transform.localEulerAngles = prefab == null ? Vector3.zero : prefab.transform.localEulerAngles;
+		gameObject.transform.localScale = prefab == null ? Vector3.one : prefab.transform.localScale;
 		return gameObject;
 	}
 
