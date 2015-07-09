@@ -3,14 +3,12 @@ using System.Collections;
 
 public abstract class Obstacle : MonoBehaviour
 {
+	public CoroutineHandler coroutineHandler;
 	public System.Action<Obstacle> onPlayerDetected;
-
-	Coroutine obstacleCoroutine;
 
 	protected Coroutine StartObstacleCoroutine(IEnumerator routine)
 	{
-		obstacleCoroutine = StartCoroutine(routine);
-		return obstacleCoroutine;
+		return coroutineHandler.StartCoroutine(routine);
 	}
 
 	protected void TriggerPlayerDetected()
@@ -19,11 +17,6 @@ public abstract class Obstacle : MonoBehaviour
 	}
 
 	public abstract void Initiate();
-
-	public void Stop()
-	{
-		StopCoroutine(obstacleCoroutine);
-	}
 
 	public Vector2 Position
 	{

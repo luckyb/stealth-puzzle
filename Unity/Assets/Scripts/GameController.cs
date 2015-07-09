@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
 	static int level = 1;
 
 	bool initiate = true;
+	CoroutineHandler coroutineHandler;
 
 	void Awake()
 	{
@@ -25,6 +26,8 @@ public class GameController : MonoBehaviour
 
 		Application.targetFrameRate = 60;
 
+		coroutineHandler = this.AddChild<CoroutineHandler>();
+
 		Map map = GetComponentInChildren<Map>();
 		if (map == null)
 		{
@@ -36,6 +39,7 @@ public class GameController : MonoBehaviour
 			
 			foreach (Obstacle obstacle in GetComponentsInChildren<Obstacle>())
 			{
+				obstacle.coroutineHandler = coroutineHandler;
 				obstacle.onPlayerDetected = OnPlayerDetectedByObstacle;
 			}
 		}
@@ -77,6 +81,7 @@ public class GameController : MonoBehaviour
 
 		foreach (Obstacle obstacle in levelObject.GetComponentsInChildren<Obstacle>())
 		{
+			obstacle.coroutineHandler = coroutineHandler;
 			obstacle.onPlayerDetected = OnPlayerDetectedByObstacle;
 		}
 	}
@@ -92,11 +97,7 @@ public class GameController : MonoBehaviour
 	void Stop()
 	{
 		inputController.Stop();
-
-		foreach (Obstacle obstacle in GetComponentsInChildren<Obstacle>())
-		{
-			obstacle.Stop();
-		}
+		coroutineHandler.StopAllCoroutines();
 	}
 
 	public PlayerController PlayerController { get { return playerController; } }

@@ -46,11 +46,11 @@ public class PatrolGuard : Obstacle
 
 			if (node.type == PatrolNode.Type.Move)
 			{
-				yield return StartCoroutine(PatrolMove(node.time, node.moveDelta * direction));
+				yield return StartObstacleCoroutine(PatrolMove(node.time, node.moveDelta * direction));
 			}
 			else if (node.type == PatrolNode.Type.Rotate)
 			{
-				yield return StartCoroutine(PatrolRotate(node.time, node.rotateDelta * direction));
+				yield return StartObstacleCoroutine(PatrolRotate(node.time, node.rotateDelta * direction));
 			}
 			else
 			{
