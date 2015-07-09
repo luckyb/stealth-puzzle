@@ -5,7 +5,7 @@ public class CameraController : MonoBehaviour
 {
 	[SerializeField] Transform playerController;
 
-	Camera camera;
+	new Camera camera;
 
 	void Start()
 	{

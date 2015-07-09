@@ -111,6 +111,7 @@ public class GameController : MonoBehaviour
 	void OnPlayerReachedGoal(Tile tile)
 	{
 		Stop();
+		playerController.MoveToPosition(tile.Position, 0.25f);
 		level++;
 		uiController.Success();
 	}

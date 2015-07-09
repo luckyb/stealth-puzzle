@@ -22,8 +22,8 @@ public class Tile : MonoBehaviour
 	
 	[HideInInspector] public Map map;
 
-	SpriteRenderer renderer;
-	BoxCollider collider;
+	new SpriteRenderer renderer;
+	new BoxCollider collider;
 
 	void Awake()
 	{
