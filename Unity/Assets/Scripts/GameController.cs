@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
 
 	bool initiate = true;
 	CoroutineHandler coroutineHandler;
+	float elapsedTime;
+	bool playingGame;
 
 	void Awake()
 	{
@@ -49,6 +51,12 @@ public class GameController : MonoBehaviour
 
 	void Update()
 	{
+		if (!Application.isPlaying)
+		{
+			main = this;
+			return;
+		}
+
 		if (initiate && inputController.Input != Vector2.zero)
 		{
 			initiate = false;
@@ -56,10 +64,10 @@ public class GameController : MonoBehaviour
 			Initiate();
 		}
 
-		if (!Application.isPlaying)
+		if (playingGame)
 		{
-			main = this;
-			return;
+			elapsedTime += Time.deltaTime;
+			uiController.Time = elapsedTime;
 		}
 		
 		if (Input.GetKeyDown(KeyCode.LeftBracket))
@@ -104,12 +112,15 @@ public class GameController : MonoBehaviour
 		{
 			obstacle.Initiate();
 		}
+
+		playingGame = true;
 	}
 
 	void Stop()
 	{
 		inputController.Stop();
 		coroutineHandler.StopAllCoroutines();
+		playingGame = false;
 	}
 
 	public PlayerController PlayerController { get { return playerController; } }
@@ -117,7 +128,7 @@ public class GameController : MonoBehaviour
 	void OnPlayerDetectedByObstacle(Obstacle obstacle)
 	{
 		Stop();
-		uiController.Failed();
+		uiController.Failed(elapsedTime);
 	}
 
 	void OnPlayerReachedGoal(Tile tile)
@@ -125,6 +136,6 @@ public class GameController : MonoBehaviour
 		Stop();
 		playerController.MoveToPosition(tile.Position, 0.25f);
 		level++;
-		uiController.Success();
+		uiController.Success(elapsedTime);
 	}
 }
