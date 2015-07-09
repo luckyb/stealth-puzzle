@@ -98,6 +98,11 @@ public class Tile : MonoBehaviour
 		set { transform.localScale = new Vector3(value.x, value.y, 100); }
 	}
 
+	void OnCollisionEnter(Collision collision)
+	{
+
+	}
+
 	void OnTriggerEnter(Collider other)
 	{
 		if (type == TileType.Goal)

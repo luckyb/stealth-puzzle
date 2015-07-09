@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+[ExecuteInEditMode]
 public class SecurityCamera : Obstacle
 {
 	[SerializeField] VisionCone visionCone;
@@ -11,11 +12,95 @@ public class SecurityCamera : Obstacle
 	[SerializeField] float rotationPause;
 	[SerializeField] bool clockwise;
 
+	[Space(8)]
+	
+	public bool snapToTopLeft;
+	public bool snapToTop;
+	public bool snapToTopRight;
+	public bool snapToLeft;
+	public bool snapToCenter;
+	public bool snapToRight;
+	public bool snapToBottomLeft;
+	public bool snapToBottom;
+	public bool snapToBottomRight;
+
 	void Awake()
 	{
+		if (!Application.isPlaying)
+		{
+			return;
+		}
+
 		visionCone.onPlayerDetected = OnPlayerDetected;
 
 		StartObstacleCoroutine(Rotate());
+	}
+
+	void Update()
+	{
+		if (!Application.isPlaying)
+		{
+			if (snapToTopLeft)
+			{
+				snapToTopLeft = false;
+				Snap(-25, 25);
+			}
+			
+			if (snapToTop)
+			{
+				snapToTop = false;
+				Snap(0, 25);
+			}
+
+			if (snapToTopRight)
+			{
+				snapToTopRight = false;
+				Snap(25, 25);
+			}
+			
+			if (snapToLeft)
+			{
+				snapToLeft = false;
+				Snap(-25, 0);
+			}
+			
+			if (snapToCenter)
+			{
+				snapToCenter = false;
+				Snap(0, 0);
+			}
+			
+			if (snapToRight)
+			{
+				snapToRight = false;
+				Snap(25, 0);
+			}
+			
+			if (snapToBottomLeft)
+			{
+				snapToBottomLeft = false;
+				Snap(-25, -25);
+			}
+			
+			if (snapToBottom)
+			{
+				snapToBottom = false;
+				Snap(0, -25);
+			}
+			
+			if (snapToBottomRight)
+			{
+				snapToBottomRight = false;
+				Snap(25, -25);
+			}
+			
+			return;
+		}
+	}
+
+	void Snap(float xOffset, float yOffset)
+	{
+		Position = new Vector2(Mathf.Round(Position.x / 100f) * 100f, Mathf.Round(Position.y / 100f) * 100f) + new Vector2(xOffset, yOffset);
 	}
 
 	IEnumerator Rotate()
