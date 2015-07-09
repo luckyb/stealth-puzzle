@@ -8,12 +8,12 @@ PlayerSettings:
   defaultScreenOrientation: 0
   targetDevice: 2
   targetResolution: 0
-  accelerometerFrequency: 60
-  companyName: Moonbit Studios
+  accelerometerFrequency: 0
+  companyName: Massive Damage Inc.
   productName: Stealth
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_ShowUnitySplashScreen: 1
+  m_ShowUnitySplashScreen: 0
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
   defaultScreenWidthWeb: 960
@@ -71,7 +71,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.MoonbitStudios.Stealth
+  bundleIdentifier: com.massdmg.Stealth
   bundleVersion: 0.1.0
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -256,7 +256,8 @@ PlayerSettings:
   psp2InfoBarColor: 0
   psmSplashimage: {fileID: 0}
   spritePackerPolicy: 
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    2: 
   metroPackageName: Unity
   metroPackageLogo: 
   metroPackageLogo140: 

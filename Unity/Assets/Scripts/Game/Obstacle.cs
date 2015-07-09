@@ -22,4 +22,10 @@ public abstract class Obstacle : MonoBehaviour
 	{
 		StopCoroutine(obstacleCoroutine);
 	}
+
+	public Vector2 Position
+	{
+		get { return transform.localPosition; }
+		set { transform.localPosition = new Vector3(value.x, value.y, 0); }
+	}
 }

@@ -3,13 +3,18 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
+	[SerializeField] Map map;
+
+	[Space(8)]
+
 	[SerializeField] InputController inputController;
 	[SerializeField] UIController uiController;
-	[SerializeField] VictoryZone victoryZone;
 
 	void Awake()
 	{
-		victoryZone.onPlayerEnter = OnPlayerEnteredVictoryZone;
+		Application.targetFrameRate = 60;
+
+		map.onPlayerReachedGoal = OnPlayerReachedGoal;
 
 		foreach (Obstacle obstacle in GetComponentsInChildren<Obstacle>())
 		{
@@ -33,7 +38,7 @@ public class GameController : MonoBehaviour
 		uiController.Failed();
 	}
 
-	void OnPlayerEnteredVictoryZone()
+	void OnPlayerReachedGoal(Tile tile)
 	{
 		Stop();
 		uiController.Success();
