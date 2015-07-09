@@ -30,14 +30,14 @@ public class GameController : MonoBehaviour
 
 		coroutineHandler = this.AddChild<CoroutineHandler>();
 
-		Map map = GetComponentInChildren<Map>();
-		if (map == null)
+		Level level = GetComponentInChildren<Level>();
+		if (level == null)
 		{
 			LoadLevel();
 		}
 		else
 		{
-			map.onPlayerReachedGoal = OnPlayerReachedGoal;
+			level.onPlayerReachedGoal = OnPlayerReachedGoal;
 			
 			foreach (Obstacle obstacle in GetComponentsInChildren<Obstacle>())
 			{
@@ -97,7 +97,7 @@ public class GameController : MonoBehaviour
 
 		GameObject levelObject = gameObject.AddChild(Resources.Load(levelName) as GameObject);
 
-		levelObject.GetComponentInChildren<Map>().onPlayerReachedGoal = OnPlayerReachedGoal;
+		levelObject.GetComponentInChildren<Level>().onPlayerReachedGoal = OnPlayerReachedGoal;
 
 		foreach (Obstacle obstacle in levelObject.GetComponentsInChildren<Obstacle>())
 		{

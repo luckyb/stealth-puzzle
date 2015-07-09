@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 
 [ExecuteInEditMode]
-public class Map : MonoBehaviour
+public class Level : MonoBehaviour
 {
+	[SerializeField] GameObject tilesContainer;
 	[SerializeField] GameObject obstaclesContainer;
 
 	[Space(8)]
@@ -33,7 +34,7 @@ public class Map : MonoBehaviour
 				size = Vector2.zero;
 				grid = new List<TileColumn>();
 				spawnTile = null;
-				this.DestroyChildren();
+				tilesContainer.DestroyChildren();
 				obstaclesContainer.DestroyChildren();
 			}
 
@@ -126,8 +127,7 @@ public class Map : MonoBehaviour
 
 	Tile GenerateTile(int x, int y)
 	{
-		Tile tile = this.AddChild<Tile>();
-		tile.map = this;
+		Tile tile = tilesContainer.AddChild<Tile>();
 		tile.name = string.Format("Tile ({0},{1})", x, y);
 		tile.Type = Tile.TileType.Wall;
 		tile.Sprite = tileSprite;

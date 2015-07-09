@@ -22,6 +22,17 @@ public static class Tools
 		gameObject.transform.localScale = prefab.transform.localScale;
 		return gameObject.GetComponent<T>();
 	}
+	
+	public static T AddChild<T>(this GameObject parent)
+		where T : Component
+	{
+		GameObject gameObject = new GameObject();
+		gameObject.transform.SetParent(parent.transform);
+		gameObject.transform.localPosition = Vector3.zero;
+		gameObject.transform.localEulerAngles = Vector3.zero;
+		gameObject.transform.localScale = Vector3.one;
+		return gameObject.AddComponent<T>();
+	}
 
 	public static T AddChild<T>(this Component parent)
 		where T : Component

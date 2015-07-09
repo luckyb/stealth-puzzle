@@ -20,16 +20,16 @@ public class Tile : MonoBehaviour
 	public bool generateSecurityCamera;
 	public bool generatePatrolGuard;
 	
-	[HideInInspector] public Map map;
-
 	new SpriteRenderer renderer;
 	new BoxCollider collider;
+	Level level;
 
 	void Awake()
 	{
 		renderer = GetComponent<SpriteRenderer>();
 		collider = GetComponent<BoxCollider>();
 		collider.center = new Vector3(0, 0, -0.5f);
+		level = GetComponentInParent<Level>();
 		RefreshTile();
 	}
 
@@ -40,13 +40,13 @@ public class Tile : MonoBehaviour
 			if (generateSecurityCamera)
 			{
 				generateSecurityCamera = false;
-				map.GenerateSecurityCameraAtTile(this);
+				level.GenerateSecurityCameraAtTile(this);
 			}
 
 			if (generatePatrolGuard)
 			{
 				generatePatrolGuard = false;
-				map.GeneratePatrolGuardAtTile(this);
+				level.GeneratePatrolGuardAtTile(this);
 			}
 
 			RefreshTile();
@@ -72,7 +72,7 @@ public class Tile : MonoBehaviour
 		{
 			renderer.color = Color.black;
 			collider.enabled = false;
-			map.SetSpawnTile(this);
+			level.SetSpawnTile(this);
 		}
 		else if (type == TileType.Goal)
 		{
@@ -116,7 +116,7 @@ public class Tile : MonoBehaviour
 		if (type == TileType.Goal)
 		{
 			PlayerController player = other.gameObject.GetComponent<PlayerController>();
-			if (player != null) map.TriggerPlayerReachedGoal(this);
+			if (player != null) level.TriggerPlayerReachedGoal(this);
 		}
 	}
 }
