@@ -142,6 +142,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &111658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 428178}
+  m_Layer: 0
+  m_Name: Items
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &117078
 GameObject:
   m_ObjectHideFlags: 1
@@ -1400,6 +1415,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 435942}
   m_RootOrder: 29
+--- !u!4 &428178
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111658}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 443316}
+  m_RootOrder: 2
 --- !u!4 &429376
 Transform:
   m_ObjectHideFlags: 1
@@ -1600,6 +1627,7 @@ Transform:
   m_Children:
   - {fileID: 435942}
   - {fileID: 492476}
+  - {fileID: 428178}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &444658
@@ -2861,8 +2889,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11401762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2875,8 +2905,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11402516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2889,8 +2921,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11404080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2903,8 +2937,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11405828
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2917,8 +2953,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11408644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2931,8 +2969,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11411020
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2946,9 +2986,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilesContainer: {fileID: 106708}
   obstaclesContainer: {fileID: 181696}
+  itemsContainer: {fileID: 111658}
   tileSprite: {fileID: 21300000, guid: 44c36f78a7ef6438bb3107a3e98c53f3, type: 3}
   securityCameraPrefab: {fileID: 161180, guid: fc056928c8f8e4b498b8522f1aa75a23, type: 2}
   patrolGuardPrefab: {fileID: 147972, guid: 3ab46c474529647c7a5774bc2c51af04, type: 2}
+  keyPrefab: {fileID: 124708, guid: 4f6fcd169a1a048a394dcdb80bf928c1, type: 2}
   size: {x: 7, y: 8}
   grid:
   - tiles:
@@ -3029,8 +3071,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11413546
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3043,8 +3087,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11414586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3057,8 +3103,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11416612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3071,8 +3119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11418652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3085,8 +3135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11419482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3099,8 +3151,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11422126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3113,8 +3167,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11423602
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3127,8 +3183,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11424140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3141,8 +3199,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11425862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3155,8 +3215,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11426274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3169,8 +3231,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11426658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3183,8 +3247,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11427000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3197,8 +3263,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11428584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3211,8 +3279,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11430106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3225,8 +3295,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11431034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3254,8 +3326,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11435292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3268,8 +3342,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11436022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3282,8 +3358,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11438026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3296,8 +3374,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11439418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3325,8 +3405,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11443836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3339,8 +3421,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11447484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3380,8 +3464,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11450294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3394,8 +3480,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11450428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3408,8 +3496,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11451558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3422,8 +3512,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11453016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3436,8 +3528,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11454922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3450,8 +3544,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11455656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3464,8 +3560,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11456944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3478,8 +3576,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11462136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3492,8 +3592,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11463692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3506,8 +3608,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11468762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3520,8 +3624,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11472136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3534,8 +3640,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11474246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3548,8 +3656,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11474738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3562,8 +3672,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11477234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3576,8 +3688,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11477476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3590,8 +3704,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11478344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3604,8 +3720,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11479326
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3618,8 +3736,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11481314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3632,8 +3752,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11481696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3646,8 +3768,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11483598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3660,8 +3784,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11486430
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3674,8 +3800,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11487752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3688,8 +3816,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11488386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3702,8 +3832,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11489764
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3716,8 +3848,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11490142
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3730,8 +3864,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11493472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3744,8 +3880,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11494756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3758,8 +3896,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!114 &11495856
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3772,8 +3912,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
+  generateKey: 0
 --- !u!212 &21202824
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -5236,7 +5378,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: keyPrefab
+      value: 
+      objectReference: {fileID: 124708, guid: 4f6fcd169a1a048a394dcdb80bf928c1, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 191626}

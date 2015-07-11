@@ -10,19 +10,25 @@ public class Tile : MonoBehaviour
 		Normal,
 		Wall,
 		Spawn,
-		Goal
+		Goal,
+		Door
 	}
 
 	[SerializeField] TileType type;
+	[SerializeField] Color doorCode = Color.red;
 
 	[Space(8)]
 
 	public bool generateSecurityCamera;
 	public bool generatePatrolGuard;
+	public bool generateKey;
 	
 	new SpriteRenderer renderer;
 	new BoxCollider collider;
+
 	Level level;
+
+	bool doorOpen;
 
 	void Awake()
 	{
@@ -47,6 +53,12 @@ public class Tile : MonoBehaviour
 			{
 				generatePatrolGuard = false;
 				level.GeneratePatrolGuardAtTile(this);
+			}
+
+			if (generateKey)
+			{
+				generateKey = false;
+				level.GenerateKeyAtTile(this);
 			}
 
 			RefreshTile();
@@ -80,12 +92,29 @@ public class Tile : MonoBehaviour
 			collider.enabled = true;
 			collider.isTrigger = true;
 		}
+		else if (type == TileType.Door)
+		{
+			renderer.color = doorOpen ? Color.black : Color.red;
+			collider.enabled = !doorOpen;
+			collider.isTrigger = false;
+		}
 	}
 
 	public TileType Type
 	{
 		get { return type; }
 		set { type = value; RefreshTile(); }
+	}
+
+	public Color DoorCode
+	{
+		get { return doorCode; }
+	}
+
+	public bool DoorOpen
+	{
+		get { return doorOpen; }
+		set { doorOpen = value; RefreshTile(); }
 	}
 
 	public Sprite Sprite

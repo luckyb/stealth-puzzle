@@ -6,12 +6,14 @@ public class Level : MonoBehaviour
 {
 	public GameObject tilesContainer;
 	public GameObject obstaclesContainer;
+	public GameObject itemsContainer;
 
 	[Space(8)]
 
 	public Sprite tileSprite;
 	public GameObject securityCameraPrefab;
 	public GameObject patrolGuardPrefab;
+	public GameObject keyPrefab;
 
 	[Space(8)]
 
@@ -148,7 +150,6 @@ public class Level : MonoBehaviour
 		SecurityCamera securityCamera = obstaclesContainer.AddChild<SecurityCamera>(securityCameraPrefab);
 		securityCamera.name = "Security Camera";
 		securityCamera.Position = tile.Position;
-		securityCamera.onPlayerDetected = TriggerObstacleDetectedPlayer;
 	}
 
 	public void GeneratePatrolGuardAtTile(Tile tile)
@@ -156,7 +157,13 @@ public class Level : MonoBehaviour
 		PatrolGuard patrolGuard = obstaclesContainer.AddChild<PatrolGuard>(patrolGuardPrefab);
 		patrolGuard.name = "Patrol Guard";
 		patrolGuard.Position = tile.Position;
-		patrolGuard.onPlayerDetected = TriggerObstacleDetectedPlayer;
+	}
+
+	public void GenerateKeyAtTile(Tile tile)
+	{
+		Key key = itemsContainer.AddChild<Key>(keyPrefab);
+		key.name = "Key";
+		key.Position = tile.Position;
 	}
 
 	public System.Action<Tile> onPlayerReachedGoal;
@@ -165,10 +172,22 @@ public class Level : MonoBehaviour
 		onPlayerReachedGoal(tile);
 	}
 
-	public System.Action<Obstacle> onObstacleDetectedPlayer;
-	public void TriggerObstacleDetectedPlayer(Obstacle obstacle)
+	public void TriggerPlayerObtainedKey(Item item)
 	{
-		onObstacleDetectedPlayer(obstacle);
+		Key key = (Key)item;
+
+		for (int row = 0; row < grid.Count; row++)
+		{
+			for (int col = 0; col < grid[row].Count; col++)
+			{
+				if (grid[row][col].Type == Tile.TileType.Door && grid[row][col].DoorCode == key.KeyCode)
+				{
+					grid[row][col].DoorOpen = true;
+				}
+			}
+		}
+
+		key.gameObject.SetActive(false);
 	}
 }
 

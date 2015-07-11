@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
 	[SerializeField] InputController inputController;
 	[SerializeField] UIController uiController;
 
-	static int level = 1;
+	static int currentLevel = 1;
 
 	bool initiate = true;
 	CoroutineHandler coroutineHandler;
@@ -46,6 +46,11 @@ public class GameController : MonoBehaviour
 				obstacle.coroutineHandler = coroutineHandler;
 				obstacle.onPlayerDetected = OnPlayerDetectedByObstacle;
 			}
+			
+			foreach (Key key in GetComponentsInChildren<Key>())
+			{
+				key.onTouchedByPlayer = level.TriggerPlayerObtainedKey;
+			}
 		}
 
 		uiController.ToggleStart(true);
@@ -69,9 +74,12 @@ public class GameController : MonoBehaviour
 				level.tilesContainer.name = "Tiles";
 				level.obstaclesContainer = level.gameObject.AddChild();
 				level.obstaclesContainer.name = "Obstacles";
+				level.itemsContainer = level.gameObject.AddChild();
+				level.itemsContainer.name = "Items";
 				level.tileSprite = levelResource.tileSprite;
 				level.securityCameraPrefab = levelResource.securityCameraPrefab;
 				level.patrolGuardPrefab = levelResource.patrolGuardPrefab;
+				level.keyPrefab = levelResource.keyPrefab;
 			}
 
 			return;
@@ -92,37 +100,43 @@ public class GameController : MonoBehaviour
 		
 		if (Input.GetKeyDown(KeyCode.LeftBracket))
 		{
-			level--;
+			currentLevel--;
 			Application.LoadLevel("Game");
 		}
 
 		if (Input.GetKeyDown(KeyCode.RightBracket))
 		{
-			level++;
+			currentLevel++;
 			Application.LoadLevel("Game");
 		}
 	}
 
 	void LoadLevel()
 	{
-		string levelName = string.Format("Level{0}", level.ToString("000"));
+		string levelName = string.Format("Level{0}", currentLevel.ToString("000"));
 		Object levelResource = Resources.Load(levelName);
 
 		if (levelResource == null)
 		{
-			level = 1;
-			levelName = string.Format("Level{0}", level.ToString("000"));
+			currentLevel = 1;
+			levelName = string.Format("Level{0}", currentLevel.ToString("000"));
 			levelResource = Resources.Load(levelName);
 		}
 
 		GameObject levelObject = gameObject.AddChild(Resources.Load(levelName) as GameObject);
 
-		levelObject.GetComponentInChildren<Level>().onPlayerReachedGoal = OnPlayerReachedGoal;
+		Level level = levelObject.GetComponentInChildren<Level>();
+		level.onPlayerReachedGoal = OnPlayerReachedGoal;
 
 		foreach (Obstacle obstacle in levelObject.GetComponentsInChildren<Obstacle>())
 		{
 			obstacle.coroutineHandler = coroutineHandler;
 			obstacle.onPlayerDetected = OnPlayerDetectedByObstacle;
+		}
+		
+		foreach (Key key in GetComponentsInChildren<Key>())
+		{
+			key.onTouchedByPlayer = level.TriggerPlayerObtainedKey;
 		}
 	}
 	
@@ -155,7 +169,7 @@ public class GameController : MonoBehaviour
 	{
 		Stop();
 		playerController.MoveToPosition(tile.Position, 0.25f);
-		level++;
+		currentLevel++;
 		uiController.Success(elapsedTime);
 	}
 }
