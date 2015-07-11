@@ -94,7 +94,7 @@ public class Tile : MonoBehaviour
 		}
 		else if (type == TileType.Door)
 		{
-			renderer.color = doorOpen ? Color.black : Color.red;
+			renderer.color = doorOpen ? Color.black : doorCode;
 			collider.enabled = !doorOpen;
 			collider.isTrigger = false;
 		}

@@ -4484,7 +4484,7 @@ MonoBehaviour:
     - {fileID: 11429522}
     - {fileID: 11419414}
     - {fileID: 11402418}
-  spawnTile: {fileID: 0}
+  spawnTile: {fileID: 11486628}
   reset: 0
   generateBox: 0
 --- !u!114 &11417654
@@ -5479,7 +5479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d3def98447004396870d8a6d0390893, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   doorCode: {r: 1, g: 0, b: 0, a: 1}
   generateSecurityCamera: 0
   generatePatrolGuard: 0
