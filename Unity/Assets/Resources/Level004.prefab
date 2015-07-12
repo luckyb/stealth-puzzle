@@ -3193,34 +3193,18 @@ MonoBehaviour:
     time: 2.5
     moveDelta: {x: 200, y: 0}
     rotateDelta: 0
-  - type: 1
-    time: .5
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 90
   - type: 0
     time: 3.75
     moveDelta: {x: 0, y: 300}
     rotateDelta: 0
-  - type: 1
-    time: .5
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 90
   - type: 0
     time: 6
     moveDelta: {x: -400, y: 0}
     rotateDelta: 0
-  - type: 1
-    time: .5
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 90
   - type: 0
     time: 3.75
     moveDelta: {x: 0, y: -300}
     rotateDelta: 0
-  - type: 1
-    time: .5
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 90
   - type: 0
     time: 2.5
     moveDelta: {x: 200, y: 0}
@@ -3771,34 +3755,18 @@ MonoBehaviour:
     time: 2.5
     moveDelta: {x: -200, y: 0}
     rotateDelta: 0
-  - type: 1
-    time: .5
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 90
   - type: 0
     time: 3.75
     moveDelta: {x: 0, y: -300}
     rotateDelta: 0
-  - type: 1
-    time: .5
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 90
   - type: 0
     time: 6
     moveDelta: {x: 400, y: 0}
     rotateDelta: 0
-  - type: 1
-    time: .5
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 90
   - type: 0
     time: 3.75
     moveDelta: {x: 0, y: 300}
     rotateDelta: 0
-  - type: 1
-    time: .5
-    moveDelta: {x: 0, y: 0}
-    rotateDelta: 90
   - type: 0
     time: 2.5
     moveDelta: {x: -200, y: 0}

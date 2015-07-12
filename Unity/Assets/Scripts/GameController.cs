@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
 		Application.targetFrameRate = 60;
 
 		coroutineHandler = this.AddChild<CoroutineHandler>();
+		coroutineHandler.name = "CoroutineHandler";
 
 		Level level = GetComponentInChildren<Level>();
 		if (level == null)

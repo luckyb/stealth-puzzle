@@ -83,6 +83,8 @@ public class PatrolGuard : Obstacle
 		float factor = 0;
 		Vector2 from = transform.localPosition;
 
+		StartCoroutine(LookAt(from + delta, 0.2f));
+
 		while (factor < 1)
 		{
 			yield return new WaitForEndOfFrame();
