@@ -17,6 +17,7 @@ public class Level : MonoBehaviour
 
 	[Space(8)]
 
+	[SerializeField] float timeLimit;
 	[SerializeField] Vector2 size;
 	[SerializeField][HideInInspector] List<TileColumn> grid = new List<TileColumn>();
 	public Tile spawnTile;
@@ -136,6 +137,11 @@ public class Level : MonoBehaviour
 		tile.Position = new Vector2(x * 100, y * 100);
 		tile.Size = new Vector2(100, 100);
 		return tile;
+	}
+
+	public float TimeLimit
+	{
+		get { return timeLimit; }
 	}
 
 	public void SetSpawnTile(Tile tile)

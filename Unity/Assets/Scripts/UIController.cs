@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 	[SerializeField] Text resultsText;
 	[SerializeField] Text timeText;
 
-	public float Time { set { timeText.text = TimeToString(value); } }
+	public float Time { set { timeText.text = "TIME LIMIT: " + TimeToString(value); } }
 
 	public void ToggleStart(bool toggle)
 	{
@@ -17,13 +17,20 @@ public class UIController : MonoBehaviour
 
 	public void Success(float time)
 	{
-		resultsText.text = "SUCCESS\nTime: " + TimeToString(time);
+		resultsText.text = "FINISHED!\n\nTime: " + TimeToString(time);
 		results.gameObject.SetActive(true);
 	}
 	
 	public void Failed(float time)
 	{
-		resultsText.text = "FAILED";
+		if (time < 0)
+		{
+			resultsText.text = "OUT OF TIME!";
+		}
+		else
+		{
+			resultsText.text = "YOU FAILED!";
+		}
 		results.gameObject.SetActive(true);
 	}
 

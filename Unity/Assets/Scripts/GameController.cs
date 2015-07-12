@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
 
 	bool initiate = true;
 	CoroutineHandler coroutineHandler;
-	float elapsedTime;
+	float timeRemaining;
 	bool playingGame;
 
 	public bool createNewLevel;
@@ -92,12 +92,6 @@ public class GameController : MonoBehaviour
 			uiController.ToggleStart(false);
 			Initiate();
 		}
-
-		if (playingGame)
-		{
-			elapsedTime += Time.deltaTime;
-			uiController.Time = elapsedTime;
-		}
 		
 		if (Input.GetKeyDown(KeyCode.LeftBracket))
 		{
@@ -109,6 +103,18 @@ public class GameController : MonoBehaviour
 		{
 			currentLevel++;
 			Application.LoadLevel("Game");
+		}
+		
+		if (playingGame)
+		{
+			timeRemaining -= Time.deltaTime;
+		}
+		
+		uiController.Time = Mathf.Max(timeRemaining, 0);
+
+		if (timeRemaining < 0)
+		{
+			Fail();
 		}
 	}
 
@@ -128,6 +134,7 @@ public class GameController : MonoBehaviour
 
 		Level level = levelObject.GetComponentInChildren<Level>();
 		level.onPlayerReachedGoal = OnPlayerReachedGoal;
+		timeRemaining = level.TimeLimit;
 
 		foreach (Obstacle obstacle in levelObject.GetComponentsInChildren<Obstacle>())
 		{
@@ -158,12 +165,17 @@ public class GameController : MonoBehaviour
 		playingGame = false;
 	}
 
+	void Fail()
+	{
+		Stop();
+		uiController.Failed(timeRemaining);
+	}
+
 	public PlayerController PlayerController { get { return playerController; } }
 
 	void OnPlayerDetectedByObstacle(Obstacle obstacle)
 	{
-		Stop();
-		uiController.Failed(elapsedTime);
+		Fail();
 	}
 
 	void OnPlayerReachedGoal(Tile tile)
@@ -171,6 +183,6 @@ public class GameController : MonoBehaviour
 		Stop();
 		playerController.MoveToPosition(tile.Position, 0.25f);
 		currentLevel++;
-		uiController.Success(elapsedTime);
+		uiController.Success(timeRemaining);
 	}
 }
