@@ -18,6 +18,6 @@ public class CameraController : MonoBehaviour
 		if (height < 250) height += 500;
 		camera.orthographicSize = height;
 
-		transform.localPosition = new Vector3(playerController.localPosition.x, playerController.localPosition.y, transform.localPosition.z);
+		transform.position = new Vector3(playerController.position.x, playerController.position.y, transform.position.z);
 	}
 }

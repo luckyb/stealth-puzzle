@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class Obstacle : MonoBehaviour
 {
-	public CoroutineHandler coroutineHandler;
+	[HideInInspector] public CoroutineHandler coroutineHandler;
 	public System.Action<Obstacle> onPlayerDetected;
 
 	protected Coroutine StartObstacleCoroutine(IEnumerator routine)

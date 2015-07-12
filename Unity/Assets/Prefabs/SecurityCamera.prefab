@@ -28,7 +28,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 486340}
   - 23: {fileID: 2353236}
-  - 33: {fileID: 3319428}
+  - 33: {fileID: 3387358}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -145,13 +145,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116460}
   m_Mesh: {fileID: 0}
---- !u!33 &3319428
+--- !u!33 &3387358
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128260}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &6482794
 MeshCollider:
   m_ObjectHideFlags: 1
