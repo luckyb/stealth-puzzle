@@ -4371,7 +4371,7 @@ MonoBehaviour:
   securityCameraPrefab: {fileID: 161180, guid: fc056928c8f8e4b498b8522f1aa75a23, type: 2}
   patrolGuardPrefab: {fileID: 147972, guid: 3ab46c474529647c7a5774bc2c51af04, type: 2}
   keyPrefab: {fileID: 124708, guid: 4f6fcd169a1a048a394dcdb80bf928c1, type: 2}
-  timeLimit: 30
+  timeLimit: 20
   size: {x: 12, y: 7}
   grid:
   - tiles:
@@ -7892,7 +7892,7 @@ Prefab:
       objectReference: {fileID: 124708, guid: 4f6fcd169a1a048a394dcdb80bf928c1, type: 2}
     - target: {fileID: 0}
       propertyPath: timeLimit
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
