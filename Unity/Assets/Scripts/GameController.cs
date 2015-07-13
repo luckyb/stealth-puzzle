@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 [ExecuteInEditMode]
@@ -110,7 +110,7 @@ public class GameController : MonoBehaviour
 			timeRemaining -= Time.deltaTime;
 		}
 		
-		uiController.Time = Mathf.Max(timeRemaining, 0);
+		uiController.TimeLimit = Mathf.Max(timeRemaining, 0);
 
 		if (timeRemaining < 0)
 		{

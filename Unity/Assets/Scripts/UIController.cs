@@ -1,14 +1,51 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class UIController : MonoBehaviour
 {
 	[SerializeField] RectTransform start;
 	[SerializeField] RectTransform results;
 	[SerializeField] Text resultsText;
-	[SerializeField] Text timeText;
+	[SerializeField] Text timeLimitText;
 
-	public float Time { set { timeText.text = "TIME LIMIT: " + TimeToString(value); } }
+	bool flashTimeLimit;
+
+	void Awake()
+	{
+		StartCoroutine(FlashTimeLimit());
+	}
+
+	IEnumerator FlashTimeLimit()
+	{
+		float factor = 0;
+		float direction = 1;
+		const float time = 0.2f;
+
+		while (true)
+		{
+			if (flashTimeLimit)
+			{
+				factor = Mathf.Clamp01(factor + UnityEngine.Time.deltaTime / time * direction);
+				timeLimitText.color = Color.Lerp(Color.white, Color.red, factor);
+				
+				if (factor == 0 || factor == 1)
+				{
+					direction = -direction;
+				}
+			}
+			else
+			{
+				factor = 0;
+				direction = 1;
+				timeLimitText.color = Color.white;
+			}
+
+			yield return new WaitForEndOfFrame();
+		}
+	}
+
+	public float TimeLimit { set { timeLimitText.text = "TIME LIMIT: " + TimeToString(value); flashTimeLimit = value < 5; } }
 
 	public void ToggleStart(bool toggle)
 	{

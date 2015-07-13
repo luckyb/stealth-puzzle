@@ -581,7 +581,7 @@ MonoBehaviour:
   start: {fileID: 979822563}
   results: {fileID: 1492746589}
   resultsText: {fileID: 925086444}
-  timeText: {fileID: 1177741646}
+  timeLimitText: {fileID: 1177741646}
 --- !u!114 &1188799957
 MonoBehaviour:
   m_ObjectHideFlags: 0
